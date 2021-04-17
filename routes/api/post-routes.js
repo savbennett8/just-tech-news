@@ -5,6 +5,8 @@ const { Post, User } = require('../../models');
 router.get('/', (req, res) => {
     Post.findAll({
         attributes: ['id', 'post_url', 'title', 'created_at'],
+        //ensures latest posted articles appear first
+        order: [['created_at', 'DESC']],
         include: [
             {
                 model: User,
