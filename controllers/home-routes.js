@@ -39,6 +39,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/login', (req, res) => {
+    //if user is logged in, redirect to homepage instead when 'login' is clicked
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
